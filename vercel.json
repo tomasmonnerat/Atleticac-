@@ -2,14 +2,20 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/app.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "backend/app.py"
+      "src": "/prever",
+      "methods": ["POST"],
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/",
+      "methods": ["GET"],
+      "dest": "api/index.py"
     }
   ]
 }
